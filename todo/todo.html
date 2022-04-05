@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h2>To Do List</h2><br>
+
+    Task : <input type="text" name="task" id="task"><br>
+    <button onclick="abc()">Add</button><br><br>
+
+
+    <table id="tasktable" border="1">
+        <tr>
+            <th>Task Name</th>
+            <th>Action</th>
+        </tr>
+        
+    </table>
+
+
+    <script>
+      function abc()
+       {
+        let x = document.getElementById("task").value;
+        console.log(x);
+
+        let y = document.createElement("td");
+        y.textContent = x;
+
+        let k = document.createElement("td");
+        k.innerHTML = "<button onclick='del(this)'>Delete</button> ";
+        
+
+        let z = document.createElement("tr");
+        z.append(y) 
+        z.append(k) 
+         
+
+        let last = document.querySelector("#tasktable");
+        last.append(z);
+
+
+        console.log(y);
+        console.log(z);
+        
+       }
+
+       function del(r)
+       {
+           let i = r.parentNode.parentNode.rowIndex;
+           document.getElementById("tasktable").deleteRow(i);
+          
+       }
+    </script>
+</body>
+</html>
